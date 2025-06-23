@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Login</h1>
-  <input type="email" id="email" placeholder="E-Mail">
-  <input type="password" id="password" placeholder="Passwort">
-  <button onclick="login()">Einloggen</button>
-
-  <p>Noch kein Konto? <a href="register.html">Registrieren</a></p>
+  <div class="login-container">
+    <h1>Hashline Login</h1>
+    <input type="email" id="email" placeholder="E-Mail">
+    <input type="password" id="password" placeholder="Passwort">
+    <button onclick="login()">Einloggen</button>
+    <p>Noch kein Konto? <a href="register.html">Registrieren</a></p>
+  </div>
 
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
     const supabase = createClient(
       'https://lywfrkohpskmwwcucfct.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // <- deinen echten Key hier einsetzen
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // deinen Key hier einsetzen
     );
 
     async function login() {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
-
       const { error } = await supabase.auth.signInWithPassword({ email, password });
-
       if (error) {
         alert("Login fehlgeschlagen: " + error.message);
       } else {
