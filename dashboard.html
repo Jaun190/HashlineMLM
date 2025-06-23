@@ -1,18 +1,39 @@
-<script type="module">
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <h1>Willkommen, <span id="username">...</span></h1>
+    <button onclick="logout()">Logout</button>
+  </div>
 
-  const supabase = createClient(
-    'https://lywfrkohpskmwwcucfct.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // dein anon Key hier
-  );
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-  const { data, error } = await supabase.auth.getUser();
+    const supabase = createClient(
+      'https://lywfrkohpskmwwcucfct.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // dein echter anon key
+    );
 
-  if (!data.user) {
-    // Nicht eingeloggt → zurück zum Login
-    window.location.href = "login.html";
-  } else {
-    // Nutzer eingeloggt → zeige Inhalt
-    document.getElementById("username").innerText = data.user.email;
-  }
-</script>
+    const { data, error } = await supabase.auth.getUser();
+
+    if (!data.user) {
+      // Nicht eingeloggt → zurück zum Login
+      window.location.href = "login.html";
+    } else {
+      // Nutzer eingeloggt → Name anzeigen
+      document.getElementById("username").innerText = data.user.email;
+    }
+
+    // Logout-Funktion
+    window.logout = async function () {
+      await supabase.auth.signOut();
+      window.location.href = "login.html";
+    };
+  </script>
+</body>
+</html>
