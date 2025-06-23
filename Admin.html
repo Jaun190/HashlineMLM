@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adminpanel – Hashline</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="supabase.js" defer></script>
+  <script src="mlm.js" defer></script>
+  <script src="pdf/generate.js" defer></script>
+</head>
+<body class="admin">
+  <div class="admin-container">
+    <h2>🔐 Adminbereich</h2>
+    
+    <section>
+      <h3>Nutzerübersicht</h3>
+      <div id="user-list">Lade Nutzer ...</div>
+    </section>
+
+    <section>
+      <h3>Provisionsauszahlungen</h3>
+      <button onclick="generateAllPayoutPDFs()">PDF-Auszahlungen generieren</button>
+      <div id="payouts-list"></div>
+    </section>
+
+    <section>
+      <h3>Statistiken</h3>
+      <ul>
+        <li>Gesamter Umsatz: <span id="total-sales">CHF 0.–</span></li>
+        <li>Starterbox-Verkäufe: <span id="box-sales">0</span></li>
+        <li>Pro-Lizenzen: <span id="pro-sales">0</span></li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
