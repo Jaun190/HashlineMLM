@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Login</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="login-container">
+  <div class="login-box">
     <h1>Hashline Login</h1>
+
     <input type="email" id="email" placeholder="E-Mail">
     <input type="password" id="password" placeholder="Passwort">
     <button onclick="login()">Einloggen</button>
+
     <p>Noch kein Konto? <a href="register.html">Registrieren</a></p>
   </div>
 
@@ -20,13 +21,14 @@
 
     const supabase = createClient(
       'https://lywfrkohpskmwwcucfct.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // deinen Key hier einsetzen
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // Dein Supabase Key
     );
 
     async function login() {
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
       const { error } = await supabase.auth.signInWithPassword({ email, password });
+
       if (error) {
         alert("Login fehlgeschlagen: " + error.message);
       } else {
