@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login – Hashline</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="supabase.js" defer></script>
+</head>
+<body class="login">
+  <div class="login-box">
+    <h2>Login</h2>
+    <input type="email" id="email" placeholder="E-Mail" />
+    <input type="password" id="password" placeholder="Passwort" />
+    <button onclick="login()">Einloggen</button>
+    <p>Noch kein Konto? <a href="#" onclick="register()">Jetzt registrieren</a></p>
+  </div>
+</body>
+</html>
