@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard – Hashline</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="supabase.js" defer></script>
+  <script src="mlm.js" defer></script>
+</head>
+<body class="dashboard">
+  <div class="topbar">
+    <img src="assets/logo.png" class="logo-small" />
+    <h2>Willkommen bei Hashline</h2>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <div class="dashboard-container">
+    <h3>Dein Status</h3>
+    <ul class="status-list">
+      <li>Starterbox: <span id="box-status">nicht gekauft</span></li>
+      <li>Pro-Lizenz: <span id="pro-status">nicht aktiv</span></li>
+      <li>Level: <span id="level">1</span></li>
+      <li>Provision: <span id="provision">CHF 0.–</span></li>
+    </ul>
+
+    <h3>Dein Referral-Link</h3>
+    <input type="text" id="ref-link" readonly />
+
+    <h3>Aktionen</h3>
+    <button onclick="buyBox()">Starterbox kaufen (CHF 49.–)</button>
+    <button onclick="buyPro()">Pro freischalten (CHF 29.–/Monat)</button>
+
+    <h3>Dein Team</h3>
+    <div id="downline"></div>
+  </div>
+</body>
+</html>
