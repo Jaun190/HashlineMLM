@@ -1,0 +1,38 @@
+// Dummy-Stripe-Funktion für Demo-Zwecke
+
+function buyBox() {
+  alert("Starterbox wird gekauft ... (Stripe-Testzahlung simuliert)");
+
+  // Beispiel: Status in Supabase speichern
+  getUser().then(async (user) => {
+    const { error } = await supabase
+      .from("profiles")
+      .update({ box: true })
+      .eq("id", user.id);
+
+    if (!error) {
+      alert("Starterbox aktiviert!");
+      location.reload();
+    } else {
+      alert("Fehler beim Speichern: " + error.message);
+    }
+  });
+}
+
+function buyPro() {
+  alert("Pro wird aktiviert ... (Stripe-Testzahlung simuliert)");
+
+  getUser().then(async (user) => {
+    const { error } = await supabase
+      .from("profiles")
+      .update({ pro: true })
+      .eq("id", user.id);
+
+    if (!error) {
+      alert("Pro-Mitgliedschaft aktiv!");
+      location.reload();
+    } else {
+      alert("Fehler beim Speichern: " + error.message);
+    }
+  });
+}
