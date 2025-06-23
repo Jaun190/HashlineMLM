@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Registrierung</title>
+</head>
+<body>
+  <h1>Registrieren</h1>
+
+  <input type="email" id="email" placeholder="E-Mail">
+  <input type="password" id="password" placeholder="Passwort">
+  <button onclick="register()">Registrieren</button>
+
+  <p>Bereits registriert? <a href="login.html">Hier einloggen</a></p>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const supabase = createClient(
+      'https://lywfrkohpskmwwcucfct.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' // ← hier echten anon Key einfügen
+    );
+
+    async function register() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const { error } = await supabase.auth.signUp({ email, password });
+
+      if (error) {
+        alert("Registrierung fehlgeschlagen: " + error.message);
+      } else {
+        alert("Registrierung erfolgreich. Du kannst dich nun einloggen.");
+        window.location.href = "login.html";
+      }
+    }
+  </script>
+</body>
+</html>
