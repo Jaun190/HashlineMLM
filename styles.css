@@ -1,0 +1,126 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0b0c10;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container, .login-box, .dashboard-container, .shop-container, .admin-container {
+  background: #1f2833;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.05);
+  width: 90%;
+  max-width: 700px;
+  text-align: center;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 1rem;
+}
+
+h1, h2 {
+  color: #66fcf1;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: #c5c6c7;
+}
+
+input {
+  display: block;
+  margin: 0.5rem auto;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  width: 80%;
+  background: #45a29e;
+  color: white;
+  font-size: 1rem;
+}
+
+.button, button {
+  padding: 0.8rem 1.5rem;
+  background: #66fcf1;
+  color: #0b0c10;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+
+.button:hover, button:hover {
+  background: #45a29e;
+}
+
+a {
+  color: #66fcf1;
+  text-decoration: none;
+}
+
+.status-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.status-list li {
+  background: #0b0c10;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+#ref-link {
+  width: 100%;
+  background: #0b0c10;
+  border: 1px solid #66fcf1;
+  padding: 0.5rem;
+  color: #fff;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.pro-features {
+  text-align: left;
+  margin: 1rem auto;
+  padding-left: 0;
+  list-style: none;
+}
+
+.pro-features li {
+  background: #0b0c10;
+  padding: 0.6rem;
+  margin: 0.3rem 0;
+  border-left: 4px solid #66fcf1;
+  border-radius: 6px;
+}
+
+.back {
+  display: block;
+  margin-top: 2rem;
+  color: #c5c6c7;
+}
+
+.logo-small {
+  width: 60px;
+  margin-right: 1rem;
+}
+
+.topbar {
+  width: 100%;
+  background: #1f2833;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
